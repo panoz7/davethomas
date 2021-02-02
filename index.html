@@ -1,0 +1,92 @@
+<html>
+
+<head>
+
+<title>Dave Thomas Circle</title>
+
+<style>
+
+    body {
+        margin: 0;
+        height: 0;
+    }
+
+    .controls {
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        color: white;
+        padding-left: 10px;
+        font-family: verdana;
+        font-size: 12px;
+    }
+
+    .controls button {
+        background-color: black;
+        border: 1px solid white;
+        color: white;
+        margin: 10px;
+    }
+
+    .controls button:hover {
+        background-color: white;
+        color: black;
+    }
+
+    div#map {
+        /* background-color: red; */
+        background-image: url('flip.jpg');
+        background-size: 100%;
+        width: 100vw;
+        height: 75.48vw;
+        position: absolute;
+    }
+
+    div#map.hide {
+        background-position: bottom;
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class='controls'>
+    Dave Thomas Circle Design Plans
+    <button id='swap'>Hide Plans</button>
+</div>
+
+<div id='map'></div>
+
+<script>
+
+    const map = document.getElementById('map');
+    const swapButton = document.getElementById('swap');
+    console.log(swapButton);
+
+    let plansVisible = true; 
+
+    swapButton.addEventListener('click', () => {
+        if (plansVisible) {
+            map.classList.add('hide');
+            swapButton.innerHTML = "Show Plans"
+            plansVisible = false;
+        } else {
+            map.classList.remove('hide');
+            swapButton.innerHTML = "Hide Plans"
+            plansVisible = true;
+        }
+    })
+
+
+
+</script>
+
+</body>
+
+</html>
